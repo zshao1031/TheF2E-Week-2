@@ -1,10 +1,264 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>篩選器(filter)</title>
-</head>
-<body>
+	<!--========================-->
+	<!--※※【網頁顯示資訊設定】※※-->	
+	<!--========================-->
 	
+	<!--使用編碼-->
+	<meta charset="UTF-8">
+	
+	<!--頁籤設定-->
+	<title>TheF2E Week2: filter</title>
+	<link rel="shortcut icon" href="img/favicon.ico">
+	
+	<!--把螢幕解析度的寬度變成載具的寬度(RWD用)-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!--網站描述與關鍵字設定-->
+	<meta name="description" content="此網站為書豪參加TheF2E的第二週作品">
+	<meta name="keywords" content="TheF2E, Week2, filter">
+
+	<!--網站貼在Facebook上時顯示的資訊-->
+	<meta property="og:title" content="TheF2E Week2: filter">
+	<meta property="og:description" content="此網站為書豪參加TheF2E的第二週作品">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="">
+	<meta property="og:image" content="img/TheF2E.jpg">
+
+	<!--IE相容性設定-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+	<!--載入Font Awesome的Icons-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+	<!--載入CSS-->
+	<link rel="stylesheet" href="css/all.css">
+
+	<!--載入jQuery-->	
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+	<!--載入JavaScript-->	
+	<script src="js/data.js"></script>
+	<script src="js/all.js"></script>
+
+</head>
+
+<body>
+		
+	<!--========================-->
+	<!--懸浮表頭區塊-->
+	<div class="fixedHeader">
+		<div class="mainTitle">
+			
+			<!--LOGO-->
+			<h1 id="haveFunLogo" title="回首頁"><a href="index.html">have fun</a></h1>
+
+			<!--搜尋框-->
+			<form action="search.html" id="searchBox">
+			<i class="fas fa-search"></i>
+			<input id="searchText" type="text" placeholder="Explore your own activities">
+			</form>
+			<div class="clearfix"></div>
+	
+			<!--篩選器-->
+			<form class="sideBar">
+				<div class="locationFilter">
+					<label class="locationFilterTitle">Location</label>
+					<select id="guideLocation" name="guideLocation">
+						<option value="Kaohsiung">高雄市全區</option>
+						<option value="Nanzi">楠梓區</option>
+						<option value="Zuoying">左營區</option>
+						<option value="Gushan">鼓山區</option>
+						<option value="Sanmin">三民區</option>
+						<option value="Yancheng">鹽埕區</option>
+						<option value="Qianjin">前金區</option>
+						<option value="Xinxing">新興區</option>
+						<option value="Lingya">苓雅區</option>
+						<option value="Qianzhen">前鎮區</option>
+						<option value="Qijin">旗津區</option>
+						<option value="Xiaogang">小港區</option>
+						<option value="Fengshan">鳳山區</option>
+						<option value="Daliao">大寮區</option>
+						<option value="Niaosong">鳥松區</option>
+						<option value="Linyuan">林園區</option>
+						<option value="Renwu">仁武區</option>
+						<option value="Dashu">大樹區</option>
+						<option value="Dashe">大社區</option>
+						<option value="Gangshan">岡山區</option>
+						<option value="Luzhu">路竹區</option>
+						<option value="Qiaotou">橋頭區</option>
+						<option value="Ziguan">梓官區</option>
+						<option value="Mituo">彌陀區</option>
+						<option value="YongAn">永安區</option>
+						<option value="Yanchao">燕巢區</option>
+						<option value="Tianliao">田寮區</option>
+						<option value="Alian">阿蓮區</option>
+						<option value="Qieding">茄萣區</option>
+						<option value="Hunei">湖內區</option>
+						<option value="Qishan">旗山區</option>
+						<option value="Meinong">美濃區</option>
+						<option value="Neimen">內門區</option>
+						<option value="Shanlin">杉林區</option>
+						<option value="Jiaxian">甲仙區</option>
+						<option value="Liugui">六龜區</option>
+						<option value="Maolin">茂林區</option>
+						<option value="Taoyuan">桃源區</option>
+						<option value="Namaxia">那瑪夏區</option>
+					</select>
+				</div>
+				
+				<div class="dataFilter">
+					<label class="dataFilterTitle">Data</label>
+					<div class="dataRadioBox">
+						<input type="radio" class="dataRadio" id="guideData" name="guideDataClass" value="guideData">
+						<label for="guideData">景點資料</label>
+					</div>
+					<div class="dataRadioBox">
+						<input type="radio" class="dataRadio" id="activityData" name="guideDataClass" value="activityData">
+						<label for="activityData">活動訊息資料</label>
+					</div>
+					<div class="dataRadioBox">
+						<input type="radio" class="dataRadio" id="foodData" name="guideDataClass" value="foodData">
+						<label for="foodData">餐飲資料</label>
+					</div>
+					<div class="dataRadioBox">
+						<input type="radio" class="dataRadio" id="hotelData" name="guideDataClass" value="hotelData">
+						<label for="hotelData">旅館民宿資料</label>
+					</div>
+				</div>
+				
+				<div class="categoriesFilter">
+					<label class="categoriesFilterTitle">Categories</label>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="culture" value="culture">
+						<label for="culture">文化類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="landscape" value="landscape">
+						<label for="landscape">自然風景類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="monuments" value="monuments">
+						<label for="monuments">古蹟類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="leisureAgriculture" value="leisureAgriculture">
+						<label for="leisureAgriculture">休閒農業類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="temple" value="temple">
+						<label for="temple">廟宇類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="fitness" value="fitness">
+						<label for="fitness">體育健身類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="art" value="art">
+						<label for="art">藝術類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="tourismFactory" value="tourismFactory">
+						<label for="tourismFactory">觀光工廠類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="hotSpring" value="hotSpring">
+						<label for="hotSpring">溫泉類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="metroPark" value="metroPark">
+						<label for="metroPark">都會公園類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="recreation" value="recreation">
+						<label for="recreation">遊憩類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="nationalPark" value="nationalPark">
+						<label for="nationalPark">國家公園類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="ecology" value="ecology">
+						<label for="ecology">生態類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="forestGarden" value="forestGarden">
+						<label for="forestGarden">林場類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="localSpecialties" value="localSpecialties">
+						<label for="localSpecialties">小吃/特產類</label>
+					</div>				
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="nationalScenicArea" value="nationalScenicArea">
+						<label for="nationalScenicArea">國家風景區類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="forestRecreation" value="forestRecreation">
+						<label for="forestRecreation">森林遊樂區類</label>
+					</div>
+					<div class="categoriesCheckboxBox">
+						<input type="checkbox" class="categoriesCheckbox" name="guideClass" id="otherCategories" value="otherCategories">
+						<label for="otherCategories">其他</label>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				
+			</form>	
+
+		</div>	
+	</div>	
+
+	<!--建立網頁容器-->
+	<div class="wrap">
+	
+		<!--========================-->
+		<!--內容區塊-->
+		<div class="contenter">
+			
+			
+			<div class="content">
+				<div class="guideHead">
+					<p>Showing <em id="resultAmount">15</em> results by…</p>
+
+					<ul class="tagList">
+						<li class="tags">
+							高雄市全區<i class="far fa-times-circle"></i>
+						</li>
+	
+						<li class="tags">
+							景點資料<i class="far fa-times-circle"></i>
+						</li>
+						<div class="clearfix"></div>
+					</ul>
+
+				</div>
+			
+				<ul id="guideList">
+					<!--由JavaScript填資料進來-->
+				</ul>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<!--========================-->
+		<!--網頁表尾區塊-->
+		<div class="footer">
+			<ul id="bookmarkList">
+				<li id="goLeftPage" class="bookmark">«</li>
+				<li class="bookmark usingThisPage">1</li>
+				<li class="bookmark">2</li>
+				<li class="bookmark">3</li>
+				<li class="bookmark">4</li>
+				<li class="bookmark">5</li>
+				<li id="goRightPage" class="bookmark">»</li>
+			</ul>
+		</div>
+
+	</div>
 </body>
+
 </html>
